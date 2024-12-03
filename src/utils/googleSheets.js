@@ -1,8 +1,11 @@
 const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 
-const credentials = require(path.join(__dirname, 'google-sheets-service-account.json'));
+
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+//const credentials = require(path.join(__dirname, 'process.env.google-sheets-service-account.json'));
 
 // Load credentials and authenticate
 const auth = new google.auth.GoogleAuth({
